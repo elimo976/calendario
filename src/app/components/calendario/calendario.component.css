@@ -1,0 +1,17 @@
+.color-arr1 {
+  background-color: lightseagreen !important;
+  border-radius: 50% !important;
+  border: 1px solid #218a85 !important;
+}
+
+.color-arr2 {
+  background-color: lightcoral !important;
+  border-radius: 50% !important;
+  border: 1px solid #d65f5f !important;
+}
+
+.color-arr3 {
+  background-color: lightgoldenrodyellow !important;
+  border-radius: 50% !important;
+  border: 1px solid #e3e3a4 !important;
+}
