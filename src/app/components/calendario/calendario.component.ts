@@ -2,13 +2,15 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-calendario',
   standalone: true,
-  imports: [MatToolbar, MatDatepickerModule, MatCardModule, CommonModule],
+  imports: [MatToolbar, MatDatepickerModule, MatCardModule, MatExpansionModule,MatIconModule, CommonModule],
   templateUrl: './calendario.component.html',
   providers: [provideNativeDateAdapter()],
   styleUrl: './calendario.component.css',
@@ -67,7 +69,6 @@ export class CalendarioComponent {
       // Elimino i doppioni da arr3
       this.arr3 = this.arr3.filter(date => !this.arr1.includes(date) && !this.arr2.includes(date));
       console.log('arr3 senza le date già presenti in arr1 e arr2: ', this.arr3);
-
    }
 
     // Assegno le classi CSS per le date degli array

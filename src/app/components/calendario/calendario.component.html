@@ -1,7 +1,44 @@
 <mat-toolbar color="primary">
   <span>Calendario</span>
 </mat-toolbar>
-<mat-card class="demo-inline-calendar-card">
+<mat-card class="calendar-card">
   <mat-calendar [(selected)]="selected"  [dateClass]="getDateClass.bind(this)"></mat-calendar>
 </mat-card>
+
+<mat-card>
+  <mat-card-title>Array di Date</mat-card-title>
+  <mat-card-subtitle>Sezione personalizzata e aggiuntiva all'esercizio richiesto</mat-card-subtitle>
+  <mat-card-content>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">calendar_today</mat-icon>Array 1
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="array-content">{{ arr1.join(', ')}}</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">calendar_today</mat-icon> Array 2
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="array-content">{{ arr2.join(', ')}}</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">calendar_today</mat-icon> Array 3
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="array-content">{{ arr3.join(', ')}}</p>
+    </mat-expansion-panel>
+  </mat-card-content>
+</mat-card>
+
+<mat-toolbar color="primary" class="footer">
+</mat-toolbar>
+
 
