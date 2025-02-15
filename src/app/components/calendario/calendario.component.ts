@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './calendario.component.html',
   providers: [provideNativeDateAdapter()],
   styleUrl: './calendario.component.css',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None // Ho scelto di usare questa proprietà; consapevole che in alternativa avrei potuto usare ::ng-deep associato alle classi del CSS del componente o inserire le classi globalmente in styles.css.
 })
 export class CalendarioComponent {
    arr1 : string[] = ['01-01-2025', '02-01-2025', '03-01-2025', '04-01-2025'];
@@ -22,9 +22,6 @@ export class CalendarioComponent {
    arr3 : string[] = [];
 
    selected: Date | null = null;
-
-   myTestDate = new Date(2025, 1, 9); // 09-02-2025
-
 
    ngOnInit() {
       // Converto arr1 e arr2 in array di oggetti Date
@@ -36,9 +33,10 @@ export class CalendarioComponent {
         return this.stringToDate(d);
       })
 
-      // Trovo la data più piccola in arr1
+      // Trovo la data più piccola del primo array, convertendo prima le date dell'array in timestamp (-> in millisecondi) e poi riconverto il valore minimo in oggetto Date
       const minDate = new Date(Math.min(...stringToDateArr1.map(d => d.getTime())));
 
+      // Trovo la data più grande del secondo array, convertendo prima le date dell'array in timestamp (-> in millisecondi) e poi riconverto il valore massimo in oggetto Date
       const maxDate = new Date(Math.max(...stringToDateArr2.map( d => d.getTime())));
 
       // Converto di nuovo le date in stringa e le aggiungo ad arr3
@@ -50,6 +48,7 @@ export class CalendarioComponent {
       const stringToDateArr3: Date[] = this.arr3.map(d => {
         return this.stringToDate(d);
       })
+
       // Calcolo 30 giorni indietro nella data più piccola di arr3
       const minDateArr3 = new Date(Math.min(...stringToDateArr3.map(d => d.getTime())));
       const minDateMinus30 = new Date (minDateArr3);
@@ -87,11 +86,8 @@ export class CalendarioComponent {
       }
 
       console.log('Applying class:', cssClass); // Per debugging
-      return cssClass; // Restituisce la classe
+      return cssClass; // Restituisce la classe vuota, in pratica niente classe CSS.
     }
-
-
-
 
    // Converto la stringa in oggetto Date per poter eseguire operazioni sulle date.
    private stringToDate(dateStr: string): Date {
